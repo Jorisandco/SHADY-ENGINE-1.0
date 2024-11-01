@@ -1,6 +1,7 @@
 package ShadyEngine;
 
 
+import Util.Time;
 import org.lwjgl.Version;
 import org.lwjgl.glfw.GLFWErrorCallback;
 import org.lwjgl.opengl.GL;
@@ -17,8 +18,6 @@ public class Window {
 	private int width ,height;
 	private String tittle;
 	private long glfwWindow;
-
-//	remove later
 	private float r, g, b, a;
 
 	private static Window window = null;
@@ -90,6 +89,10 @@ public class Window {
 	}
 	
 	public void loop() {
+		float beginTime = Time.getTime();
+		float endTime = Time.getTime();
+
+
 		while(!glfwWindowShouldClose(glfwWindow)) {
 			glfwPollEvents();
 			
@@ -97,6 +100,10 @@ public class Window {
 			glClear(GL_COLOR_BUFFER_BIT);
 
 			glfwSwapBuffers(glfwWindow);
+
+			endTime = Time.getTime();
+			float dt = endTime - beginTime;
+			beginTime = endTime;
 		}
 	}
 }
