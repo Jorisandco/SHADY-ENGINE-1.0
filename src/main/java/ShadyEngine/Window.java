@@ -27,9 +27,11 @@ public class Window {
 		this.width = 1920;
 		this.height = 1080;
 		this.tittle = "Shady Engine";
-		r = 1;
-		g = 1;
-		b = 1;
+
+//		default background colour
+		r = 0.4f;
+		g = 0;
+		b = 0.6f;
 		a = 1;
 	}
 	
