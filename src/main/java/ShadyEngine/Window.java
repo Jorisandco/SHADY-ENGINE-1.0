@@ -64,6 +64,11 @@ public class Window {
 		if(glfwWindow == NULL) {
 			System.out.println("failed to create window");
 		}
+
+		glfwSetCursorPosCallback(glfwWindow, MouseListener::mousePoseCallback);
+		glfwSetMouseButtonCallback(glfwWindow, MouseListener::mouseButtonCallback);
+		glfwSetScrollCallback(glfwWindow, MouseListener::mouseScrollCallback);
+
 		
 		glfwMakeContextCurrent(glfwWindow);
 		
