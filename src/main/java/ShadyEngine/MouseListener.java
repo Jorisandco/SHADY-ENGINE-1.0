@@ -2,6 +2,7 @@ package ShadyEngine;
 
 import static org.lwjgl.glfw.GLFW.*;
 
+
 public class MouseListener {
     private static MouseListener instance;
     private double scrollX, scrollY;

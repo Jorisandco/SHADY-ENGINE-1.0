@@ -17,13 +17,20 @@ public class Window {
 	private int width ,height;
 	private String tittle;
 	private long glfwWindow;
-	
+
+//	remove later
+	private float r, g, b, a;
+
 	private static Window window = null;
 	
 	private Window() {
 		this.width = 1920;
 		this.height = 1080;
 		this.tittle = "Shady Engine";
+		r = 1;
+		g = 1;
+		b = 1;
+		a = 1;
 	}
 	
 	public static Window get() {
@@ -68,6 +75,7 @@ public class Window {
 		glfwSetCursorPosCallback(glfwWindow, MouseListener::mousePoseCallback);
 		glfwSetMouseButtonCallback(glfwWindow, MouseListener::mouseButtonCallback);
 		glfwSetScrollCallback(glfwWindow, MouseListener::mouseScrollCallback);
+		glfwSetKeyCallback(glfwWindow, KeyListener::KeyCallback);
 
 		
 		glfwMakeContextCurrent(glfwWindow);
@@ -83,9 +91,9 @@ public class Window {
 		while(!glfwWindowShouldClose(glfwWindow)) {
 			glfwPollEvents();
 			
-			glClearColor(1.0f, 0.0f, 0.0f, 1.0f);
+			glClearColor(r, g, b, a);
 			glClear(GL_COLOR_BUFFER_BIT);
-			
+
 			glfwSwapBuffers(glfwWindow);
 		}
 	}
